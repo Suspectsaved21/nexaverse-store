@@ -4,6 +4,13 @@ All notable changes to the Nexa project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2024-03-19
+### Added
+- Completed Phase 2 (User Experience) implementation
+- Simplified profile management to focus on username
+- Added comprehensive error handling and loading states
+- Enhanced user feedback with toast notifications
+
 ## [0.1.2] - 2024-03-19
 ### Added
 - Implemented protected routes for authenticated users
