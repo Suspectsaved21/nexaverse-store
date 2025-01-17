@@ -58,7 +58,7 @@ export default function CartTotal({ items }: CartTotalProps) {
         className="w-full mt-4"
         onClick={handleCheckout}
       >
-        Subscribe - €10.00/month
+        Proceed to Checkout
       </Button>
     </div>
   );

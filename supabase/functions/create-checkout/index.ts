@@ -34,27 +34,23 @@ serve(async (req) => {
       apiVersion: '2023-10-16',
     })
 
-    const customers = await stripe.customers.list({
-      email: email,
-      limit: 1
-    })
-
-    let customer_id = undefined
-    if (customers.data.length > 0) {
-      customer_id = customers.data[0].id
-    }
+    const { items } = await req.json()
 
     console.log('Creating payment session...')
     const session = await stripe.checkout.sessions.create({
-      customer: customer_id,
-      customer_email: customer_id ? undefined : email,
-      line_items: [
-        {
-          price: 'price_1QiLKY1M5GoFZg1RLiX50zPJ',
-          quantity: 1,
+      customer_email: email,
+      line_items: items.map((item: any) => ({
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: item.product.name,
+            images: item.product.image_url ? [item.product.image_url] : undefined,
+          },
+          unit_amount: Math.round(item.product.price * 100), // Convert to cents
         },
-      ],
-      mode: 'subscription',
+        quantity: item.quantity,
+      })),
+      mode: 'payment',
       success_url: `${req.headers.get('origin')}/success`,
       cancel_url: `${req.headers.get('origin')}/cancel`,
     })
