@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
@@ -39,21 +39,31 @@ export default function Profile() {
         return;
       }
 
+      // Using maybeSingle() instead of single() to handle cases where profile doesn't exist
       const { data, error } = await supabase
         .from("profiles")
         .select("username, full_name, website, avatar_url")
         .eq("id", user.id)
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
 
-      if (data) {
+      // If no profile exists, we'll create one
+      if (!data) {
+        const { error: insertError } = await supabase
+          .from("profiles")
+          .insert([{ id: user.id }]);
+
+        if (insertError) throw insertError;
+
         setProfile({
-          username: data.username,
-          full_name: data.full_name,
-          website: data.website,
-          avatar_url: data.avatar_url,
+          username: null,
+          full_name: null,
+          website: null,
+          avatar_url: null,
         });
+      } else {
+        setProfile(data);
       }
     } catch (error) {
       toast({
