@@ -24,10 +24,6 @@ export default function Cart() {
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchCartItems();
-  }, []);
-
   const fetchCartItems = async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
@@ -49,7 +45,6 @@ export default function Cart() {
 
       if (error) throw error;
 
-      // Transform the data to match our CartItem interface
       const transformedData = data?.map(item => ({
         id: item.id,
         product_id: item.product_id,
@@ -72,6 +67,21 @@ export default function Cart() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchCartItems();
+    
+    // Add event listener for cart refresh
+    const handleRefreshCart = () => {
+      fetchCartItems();
+    };
+    
+    window.addEventListener('refreshCart', handleRefreshCart);
+    
+    return () => {
+      window.removeEventListener('refreshCart', handleRefreshCart);
+    };
+  }, []);
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {

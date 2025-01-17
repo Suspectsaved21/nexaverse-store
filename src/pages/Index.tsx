@@ -52,6 +52,9 @@ export default function Index() {
 
       if (error) throw error;
 
+      // Trigger a custom event to refresh the cart
+      window.dispatchEvent(new CustomEvent('refreshCart'));
+
       toast({
         title: "Success",
         description: "Item added to cart",
