@@ -4,15 +4,17 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
+interface CartProduct {
+  name: string;
+  price: number;
+  image_url: string | null;
+}
+
 interface CartItemProps {
   item: {
     id: string;
     quantity: number;
-    product: {
-      name: string;
-      price: number;
-      image_url: string;
-    };
+    product: CartProduct;
   };
   onUpdate: () => void;
 }

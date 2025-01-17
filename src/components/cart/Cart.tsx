@@ -6,15 +6,17 @@ import { supabase } from "@/integrations/supabase/client";
 import CartItem from "./CartItem";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
+interface CartProduct {
+  name: string;
+  price: number;
+  image_url: string | null;
+}
+
 interface CartItem {
   id: string;
   product_id: string;
   quantity: number;
-  product: {
-    name: string;
-    price: number;
-    image_url: string;
-  };
+  product: CartProduct;
 }
 
 export default function Cart() {
@@ -46,7 +48,20 @@ export default function Cart() {
         .eq('user_id', user.id);
 
       if (error) throw error;
-      setCartItems(data || []);
+
+      // Transform the data to match our CartItem interface
+      const transformedData = data?.map(item => ({
+        id: item.id,
+        product_id: item.product_id,
+        quantity: item.quantity,
+        product: {
+          name: item.products.name,
+          price: item.products.price,
+          image_url: item.products.image_url
+        }
+      })) || [];
+
+      setCartItems(transformedData);
     } catch (error) {
       toast({
         variant: "destructive",
