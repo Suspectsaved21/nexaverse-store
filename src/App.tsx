@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Index from "./pages/Index";
+import Shop from "./pages/Shop";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
@@ -24,6 +25,7 @@ const App = () => (
           <main className="flex-grow pt-16">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/shop" element={<Shop />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route 
