@@ -4,6 +4,12 @@ All notable changes to the Nexa project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.2] - 2024-03-19
+### Added
+- Implemented protected routes for authenticated users
+- Added ProtectedRoute component with auth check
+- Added toast notifications for unauthorized access attempts
+
 ## [0.1.1] - 2024-03-19
 ### Added
 - Implemented password reset functionality
