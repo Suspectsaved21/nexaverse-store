@@ -32,7 +32,13 @@ serve(async (req) => {
 
     const stripeKey = Deno.env.get('STRIPE_SECRET_KEY')
     if (!stripeKey) {
+      console.error('Stripe secret key is missing')
       throw new Error('Stripe secret key not configured')
+    }
+
+    if (!stripeKey.startsWith('sk_test_') && !stripeKey.startsWith('sk_live_')) {
+      console.error('Invalid Stripe key format')
+      throw new Error('Invalid Stripe key format')
     }
 
     console.log('Initializing Stripe...')
@@ -41,6 +47,9 @@ serve(async (req) => {
     })
 
     const { items } = await req.json()
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      throw new Error('No items provided for checkout')
+    }
 
     console.log('Creating payment session...')
     console.log('Cart items:', items)
