@@ -4,8 +4,13 @@ All notable changes to the Nexa project will be documented in this file.
 
 ## [Unreleased]
 
-## [0.1.0] - 2024-03-19
+## [0.1.1] - 2024-03-19
+### Added
+- Implemented password reset functionality
+- Added ResetPassword and UpdatePassword pages
+- Added toast notifications for password reset events
 
+## [0.1.0] - 2024-03-19
 ### Added
 - Initial project setup with Vite, React, TypeScript, and Tailwind CSS
 - Integrated shadcn/ui components for modern UI elements
