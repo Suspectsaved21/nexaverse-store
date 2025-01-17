@@ -11,7 +11,6 @@ interface Profile {
   username: string | null;
   full_name: string | null;
   website: string | null;
-  avatar_url: string | null;
 }
 
 export default function Profile() {
@@ -23,7 +22,6 @@ export default function Profile() {
     username: null,
     full_name: null,
     website: null,
-    avatar_url: null,
   });
 
   useEffect(() => {
@@ -39,16 +37,14 @@ export default function Profile() {
         return;
       }
 
-      // Using maybeSingle() instead of single() to handle cases where profile doesn't exist
       const { data, error } = await supabase
         .from("profiles")
-        .select("username, full_name, website, avatar_url")
+        .select("username, full_name, website")
         .eq("id", user.id)
         .maybeSingle();
 
       if (error) throw error;
 
-      // If no profile exists, we'll create one
       if (!data) {
         const { error: insertError } = await supabase
           .from("profiles")
@@ -60,7 +56,6 @@ export default function Profile() {
           username: null,
           full_name: null,
           website: null,
-          avatar_url: null,
         });
       } else {
         setProfile(data);
