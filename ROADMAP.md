@@ -5,6 +5,7 @@
 - Core UI components in place
 - Database structure initialized
 - Phase 2 (User Experience) completed
+- Phase 3 (E-commerce) in progress
 
 ## Upcoming Features
 
@@ -25,9 +26,10 @@
 - [x] Create protected routes for user-specific content
 - [x] Add loading states and better error handling
 
-### Phase 3: E-commerce Features
-- [ ] Set up product catalog
-- [ ] Implement shopping cart
+### Phase 3: E-commerce Features (In Progress)
+- [x] Set up product catalog
+- [x] Set up shopping cart database structure
+- [ ] Implement shopping cart UI
 - [ ] Integrate payment processing
 - [ ] Add order management system
 

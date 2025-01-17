@@ -4,6 +4,13 @@ All notable changes to the Nexa project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.0] - 2024-03-19
+### Added
+- Started Phase 3 (E-commerce) implementation
+- Set up products table with proper structure
+- Created cart_items table with RLS policies
+- Prepared database structure for shopping cart functionality
+
 ## [0.2.0] - 2024-03-19
 ### Added
 - Completed Phase 2 (User Experience) implementation
