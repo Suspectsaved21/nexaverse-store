@@ -8,8 +8,6 @@ import { UserCircle, Loader2 } from "lucide-react";
 
 interface Profile {
   username: string | null;
-  full_name: string | null;
-  website: string | null;
 }
 
 interface ProfileFormProps {
@@ -28,7 +26,7 @@ export default function ProfileForm({ initialProfile, userId, onProfileUpdate }:
       setUpdating(true);
       const updates = {
         id: userId,
-        ...profile,
+        username: profile.username,
         updated_at: new Date().toISOString(),
       };
 
@@ -62,10 +60,10 @@ export default function ProfileForm({ initialProfile, userId, onProfileUpdate }:
           Profile Settings
         </CardTitle>
         <CardDescription>
-          Update your profile information
+          Update your username
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent>
         <div className="space-y-2">
           <label htmlFor="username" className="text-sm font-medium">Username</label>
           <Input
@@ -73,24 +71,6 @@ export default function ProfileForm({ initialProfile, userId, onProfileUpdate }:
             type="text"
             value={profile.username || ""}
             onChange={(e) => setProfile({ ...profile, username: e.target.value })}
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="fullName" className="text-sm font-medium">Full Name</label>
-          <Input
-            id="fullName"
-            type="text"
-            value={profile.full_name || ""}
-            onChange={(e) => setProfile({ ...profile, full_name: e.target.value })}
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="website" className="text-sm font-medium">Website</label>
-          <Input
-            id="website"
-            type="url"
-            value={profile.website || ""}
-            onChange={(e) => setProfile({ ...profile, website: e.target.value })}
           />
         </div>
       </CardContent>
