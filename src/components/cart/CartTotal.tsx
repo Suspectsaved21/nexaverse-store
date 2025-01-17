@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 
 interface CartProduct {
   name: string;
@@ -21,6 +22,7 @@ interface CartTotalProps {
 
 export default function CartTotal({ items }: CartTotalProps) {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
 
   const calculateTotal = () => {
     return items.reduce((total, item) => {
@@ -29,22 +31,32 @@ export default function CartTotal({ items }: CartTotalProps) {
   };
 
   const handleCheckout = async () => {
+    setIsLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout', {
         body: { items },
       });
 
-      if (error) throw error;
-
-      if (data?.url) {
-        window.location.href = data.url;
+      if (error) {
+        console.error('Checkout error:', error);
+        throw error;
       }
+
+      if (!data?.url) {
+        throw new Error('No checkout URL received');
+      }
+
+      // Redirect to Stripe checkout
+      window.location.href = data.url;
     } catch (error) {
+      console.error('Detailed error:', error);
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Failed to initiate checkout",
+        title: "Checkout Error",
+        description: "There was a problem initiating checkout. Please try again later.",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -57,8 +69,9 @@ export default function CartTotal({ items }: CartTotalProps) {
       <Button 
         className="w-full mt-4"
         onClick={handleCheckout}
+        disabled={isLoading}
       >
-        Proceed to Checkout
+        {isLoading ? "Processing..." : "Proceed to Checkout"}
       </Button>
     </div>
   );
