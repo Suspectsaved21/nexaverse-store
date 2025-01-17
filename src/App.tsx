@@ -12,6 +12,8 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import ResetPassword from "./pages/ResetPassword";
 import UpdatePassword from "./pages/UpdatePassword";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -38,6 +40,8 @@ const App = () => (
               />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/update-password" element={<UpdatePassword />} />
+              <Route path="/success" element={<Success />} />
+              <Route path="/cancel" element={<Cancel />} />
             </Routes>
           </main>
           <Footer />
