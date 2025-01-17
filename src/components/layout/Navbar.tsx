@@ -5,21 +5,52 @@ import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { UserCircle } from "lucide-react";
 
+interface Profile {
+  username: string | null;
+}
+
 export default function Navbar() {
   const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
+      if (session?.user) {
+        getProfile(session.user.id);
+      }
     });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
+      if (session?.user) {
+        getProfile(session.user.id);
+      } else {
+        setProfile(null);
+      }
     });
 
     return () => subscription.unsubscribe();
   }, []);
+
+  const getProfile = async (userId: string) => {
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("username")
+      .eq("id", userId)
+      .single();
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Error fetching profile",
+      });
+    } else {
+      setProfile(data);
+    }
+  };
 
   const handleSignOut = async () => {
     const { error } = await supabase.auth.signOut();
@@ -53,7 +84,7 @@ export default function Navbar() {
                   </Button>
                 </Link>
                 <span className="text-sm text-gray-600">
-                  {user.email}
+                  {profile?.username || 'Set username'}
                 </span>
                 <Button
                   variant="outline"
