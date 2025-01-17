@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { UserCircle } from "lucide-react";
+import Cart from "../cart/Cart";
 
 interface Profile {
   username: string | null;
@@ -78,6 +79,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             {user ? (
               <>
+                <Cart />
                 <Link to="/profile">
                   <Button variant="ghost" size="icon">
                     <UserCircle className="h-5 w-5" />
