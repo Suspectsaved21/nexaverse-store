@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { UserCircle } from "lucide-react";
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
@@ -46,6 +47,11 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             {user ? (
               <>
+                <Link to="/profile">
+                  <Button variant="ghost" size="icon">
+                    <UserCircle className="h-5 w-5" />
+                  </Button>
+                </Link>
                 <span className="text-sm text-gray-600">
                   {user.email}
                 </span>
