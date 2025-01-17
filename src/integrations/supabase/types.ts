@@ -15,6 +15,21 @@ export type Database = {
         Update: {}
         Relationships: []
       }
+      "RLS-table": {
+        Row: {
+          created_at: Json
+          id: number
+        }
+        Insert: {
+          created_at: Json
+          id?: number
+        }
+        Update: {
+          created_at?: Json
+          id?: number
+        }
+        Relationships: []
+      }
       "user-authentification": {
         Row: {
           created_at: string
