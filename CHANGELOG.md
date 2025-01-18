@@ -4,6 +4,15 @@ All notable changes to the Nexa project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.1] - 2024-03-19
+### Added
+- Completed Phase 3 (E-commerce) implementation
+- Integrated Stripe payment processing
+- Added shopping cart UI with real-time updates
+- Implemented cart item management (add, remove, update quantities)
+- Added Success and Cancel pages for payment flow
+- Created Edge Function for secure payment processing
+
 ## [0.3.0] - 2024-03-19
 ### Added
 - Started Phase 3 (E-commerce) implementation
