@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
-import { Button } from "@/components/ui/button";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -27,7 +26,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow flex items-center justify-center px-4 py-12">
+      <main className="flex-grow flex items-center justify-center px-4 py-12 bg-gray-50">
         <Card className="w-full max-w-md">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl text-center">Welcome back</CardTitle>
