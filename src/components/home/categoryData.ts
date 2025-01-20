@@ -17,6 +17,6 @@ export const categories = [
   {
     name: "Beauty",
     link: "beauty",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/e446caf7-15d8-4892-9481-b3c6c8289301.png"
   }
 ];
