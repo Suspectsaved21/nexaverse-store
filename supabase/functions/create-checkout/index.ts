@@ -56,17 +56,12 @@ serve(async (req) => {
     
     const session = await stripe.checkout.sessions.create({
       customer_email: email,
-      line_items: items.map((item: any) => ({
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: item.product.name,
-            images: item.product.image_url ? [item.product.image_url] : undefined,
-          },
-          unit_amount: Math.round(item.product.price * 100), // Convert to cents
+      line_items: [
+        {
+          price: 'price_1Qj9331M5GoFZg1RnDCks6Iy',
+          quantity: 1,
         },
-        quantity: item.quantity,
-      })),
+      ],
       mode: 'payment', // One-time payment
       success_url: `${req.headers.get('origin')}/success`,
       cancel_url: `${req.headers.get('origin')}/cancel`,
