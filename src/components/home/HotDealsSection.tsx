@@ -12,7 +12,7 @@ const deals = [
     id: 1,
     name: "Intermediate Size Basketball",
     price: 29.99,
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/ab7d24b3-7846-4467-a424-f5aa94764e0b.png"
   },
   {
     id: 2,
