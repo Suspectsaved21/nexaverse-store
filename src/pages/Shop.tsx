@@ -20,10 +20,30 @@ export default function Shop() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('products')
-        .select('*');
+        .select('*')
+        .eq('name', 'Digital Marketing Guide')
+        .single();
       
-      if (error) throw error;
-      return data as Product[];
+      if (error) {
+        // If the guide doesn't exist, create it
+        const { data: newProduct, error: insertError } = await supabase
+          .from('products')
+          .insert([
+            {
+              name: 'Digital Marketing Guide',
+              description: 'Comprehensive guide to digital marketing strategies',
+              price: 29.99,
+              stock_quantity: 999,
+              is_active: true
+            }
+          ])
+          .select()
+          .single();
+
+        if (insertError) throw insertError;
+        return [newProduct];
+      }
+      return [data];
     }
   });
 
@@ -71,7 +91,7 @@ export default function Shop() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
+          {[1, 2, 3].map((i) => (
             <div key={i} className="animate-pulse">
               <div className="bg-gray-200 h-48 rounded-lg mb-4"></div>
               <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
