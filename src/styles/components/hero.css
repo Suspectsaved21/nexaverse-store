@@ -4,19 +4,26 @@
 
 @layer components {
   .hero-section {
-    @apply text-white bg-cover bg-center relative overflow-hidden;
-    min-height: 80vh;
+    @apply relative min-h-[90vh] flex items-center;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-section::before {
+    content: '';
+    @apply absolute inset-0 bg-black/30 z-[1];
   }
 
   .hero-section h1 {
-    @apply text-4xl font-bold mb-4;
+    @apply text-5xl md:text-7xl font-bold mb-4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .hero-section p {
-    @apply text-xl mb-8;
+    @apply text-xl md:text-2xl mb-8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .hero-section button {
-    @apply mt-4 px-6 py-2 bg-[#721244] text-white rounded-md hover:bg-[#530a46] transition-colors;
+    @apply mt-4 px-8 py-3 bg-[#e91e63] text-white rounded-md hover:bg-[#c2185b] transition-colors;
   }
 }

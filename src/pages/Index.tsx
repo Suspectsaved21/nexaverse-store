@@ -7,22 +7,22 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="hero-section flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-12 min-h-[80vh]">
-        <div className="flex-1 text-left z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Nexa</h1>
-          <p className="text-xl mb-6">Your one-stop online shop for everything!</p>
-          <Link to="/shop">
-            <Button size="lg" className="bg-[#721244] hover:bg-[#530a46] text-white">
-              Shop Now
-            </Button>
-          </Link>
-        </div>
-        <div className="flex-1 h-full w-full">
-          <img 
-            src="/lovable-uploads/d8e71c37-83cd-4f24-9782-a884ca1aa993.png" 
-            alt="Nexa Fashion Collection" 
-            className="rounded-lg shadow-xl w-full h-full object-cover max-h-[600px]"
-          />
+      <section className="hero-section relative">
+        <img 
+          src="/lovable-uploads/d8e71c37-83cd-4f24-9782-a884ca1aa993.png" 
+          alt="Nexa Fashion Collection" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="relative z-10 flex flex-col justify-center h-full max-w-4xl mx-auto px-4 py-12">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">Welcome to Nexa</h1>
+          <p className="text-xl md:text-2xl mb-8 text-white">Your one-stop online shop for everything!</p>
+          <div>
+            <Link to="/shop">
+              <Button size="lg" className="bg-[#e91e63] hover:bg-[#c2185b] text-white text-lg px-8 py-6">
+                Shop Now
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
