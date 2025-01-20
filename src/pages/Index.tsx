@@ -7,14 +7,23 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="hero-section">
-        <h1>Welcome to Nexa</h1>
-        <p>Your one-stop online shop for everything!</p>
-        <Link to="/shop">
-          <Button size="lg" className="bg-[#721244] hover:bg-[#530a46] text-white">
-            Shop Now
-          </Button>
-        </Link>
+      <section className="hero-section flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-12">
+        <div className="flex-1 text-left">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Nexa</h1>
+          <p className="text-xl mb-6">Your one-stop online shop for everything!</p>
+          <Link to="/shop">
+            <Button size="lg" className="bg-[#721244] hover:bg-[#530a46] text-white">
+              Shop Now
+            </Button>
+          </Link>
+        </div>
+        <div className="flex-1">
+          <img 
+            src="/lovable-uploads/d8e71c37-83cd-4f24-9782-a884ca1aa993.png" 
+            alt="Nexa Fashion Collection" 
+            className="rounded-lg shadow-xl w-full max-w-[600px] object-cover"
+          />
+        </div>
       </section>
 
       {/* Categories Section */}
