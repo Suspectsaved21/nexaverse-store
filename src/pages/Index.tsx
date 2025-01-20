@@ -118,7 +118,7 @@ const categories = [
   {
     name: "Furniture",
     link: "furniture",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/0f839c5f-af78-436e-bb31-2dd9d13c6a2c.png"
   },
   {
     name: "Beauty",
