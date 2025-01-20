@@ -67,7 +67,7 @@ serve(async (req) => {
         },
         quantity: item.quantity,
       })),
-      mode: 'payment',
+      mode: 'payment', // One-time payment
       success_url: `${req.headers.get('origin')}/success`,
       cancel_url: `${req.headers.get('origin')}/cancel`,
     })
