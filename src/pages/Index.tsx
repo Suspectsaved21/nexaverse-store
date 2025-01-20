@@ -108,7 +108,7 @@ const categories = [
   {
     name: "Electronics",
     link: "electronics",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/1722e92e-a100-4aad-8b40-f32d19077504.png"
   },
   {
     name: "Fashion",
