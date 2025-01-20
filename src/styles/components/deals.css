@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .deals-section {
+    @apply py-16 px-4 bg-white text-center;
+  }
+
+  .deals-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto;
+  }
+
+  .deal-card {
+    @apply bg-white p-6 rounded-lg shadow-md;
+  }
+
+  .deal-card img {
+    @apply w-full h-48 object-contain mb-4;
+  }
+
+  .cart-controls {
+    @apply flex items-center justify-center gap-2 mt-4;
+  }
+
+  .cart-controls button {
+    @apply px-4 py-2 bg-[#530a46] text-white rounded hover:bg-[#721244] transition-colors;
+  }
+}

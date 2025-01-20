@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import './styles/layout/header.css';
+@import './styles/components/hero.css';
+@import './styles/components/categories.css';
+@import './styles/components/deals.css';
+@import './styles/components/menu.css';
 
 @tailwind base;
 @tailwind components;
@@ -35,102 +40,4 @@
   body {
     @apply bg-background text-foreground font-sans m-0 p-0;
   }
-}
-
-/* Custom styles */
-.hero-section {
-  @apply text-white bg-cover bg-center min-h-[70vh] flex flex-col items-center justify-center;
-  background-image: url('/placeholder.svg');
-}
-
-.hero-section h1 {
-  @apply text-4xl font-bold mb-4;
-}
-
-.hero-section p {
-  @apply text-xl mb-8;
-}
-
-.categories-section {
-  @apply py-16 px-4 bg-gray-50;
-}
-
-.category-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto;
-}
-
-.category-card {
-  @apply bg-white p-6 rounded-lg shadow-md hover:bg-purple-600 hover:text-white transition-colors cursor-pointer;
-}
-
-.deals-section {
-  @apply py-16 px-4 bg-white;
-}
-
-.deals-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto;
-}
-
-.deal-card {
-  @apply bg-white p-6 rounded-lg shadow-md;
-}
-
-.deal-card img {
-  @apply w-full h-48 object-contain mb-4;
-}
-
-.cart-controls {
-  @apply flex items-center justify-center gap-2 mt-4;
-}
-
-.cart-controls button {
-  @apply px-4 py-2 bg-[#530a46] text-white rounded hover:bg-[#721244] transition-colors;
-}
-
-.scrollable-section {
-  @apply relative my-16;
-}
-
-.video-background-container {
-  @apply relative w-full h-[400px] overflow-hidden;
-}
-
-.video-loop {
-  @apply absolute inset-0 w-full h-full object-cover;
-}
-
-.scrollable-container {
-  @apply relative z-10 flex gap-8 p-8 overflow-x-auto;
-}
-
-.menu-container {
-  @apply relative;
-}
-
-.menu-btn {
-  @apply flex items-center gap-2 text-white bg-transparent border-none cursor-pointer;
-}
-
-.menu {
-  @apply absolute top-full left-0 bg-white shadow-lg rounded-md p-4 mt-2;
-}
-
-.menu ul {
-  @apply space-y-2;
-}
-
-.menu ul li a {
-  @apply text-gray-800 hover:text-purple-600 transition-colors;
-}
-
-.search-cart {
-  @apply flex items-center gap-4;
-}
-
-#search-bar {
-  @apply px-4 py-2 rounded-md border-none;
-}
-
-.cart-btn {
-  @apply flex items-center justify-center gap-2 px-4 py-2 bg-[#721244] text-white rounded-md hover:bg-[#530a46] transition-colors;
 }

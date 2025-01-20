@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .header {
+    @apply z-10 h-16 fixed top-0 left-0 w-full flex justify-between items-center bg-[#032e64] text-white px-8 box-border;
+  }
+
+  .nav-links {
+    @apply flex list-none gap-4 m-0 p-0;
+  }
+
+  .nav-links li a {
+    @apply text-white no-underline text-base;
+  }
+
+  .search-cart {
+    @apply flex items-center gap-4;
+  }
+
+  #search-bar {
+    @apply px-4 py-2 rounded-md border-none;
+  }
+
+  .cart-btn {
+    @apply flex items-center justify-center gap-2 px-4 py-2 bg-[#721244] text-white rounded-md hover:bg-[#530a46] transition-colors;
+  }
+
+  #language-selector {
+    @apply ml-auto self-center py-1 px-2 rounded border border-gray-300 bg-white cursor-pointer text-base;
+  }
+}

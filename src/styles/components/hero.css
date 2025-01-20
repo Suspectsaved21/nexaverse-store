@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hero-section {
+    @apply text-white bg-cover bg-center min-h-[70vh] flex flex-col items-center justify-center;
+    background-image: url('/placeholder.svg');
+  }
+
+  .hero-section h1 {
+    @apply text-4xl font-bold mb-4;
+  }
+
+  .hero-section p {
+    @apply text-xl mb-8;
+  }
+
+  .hero-section button {
+    @apply mt-4 px-6 py-2 bg-[#721244] text-white rounded-md hover:bg-[#530a46] transition-colors;
+  }
+}
