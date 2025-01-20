@@ -18,7 +18,7 @@ export default function Index() {
           <p className="text-xl md:text-2xl mb-8 text-white">Your one-stop online shop for everything!</p>
           <div className="flex justify-center w-full">
             <Link to="/shop">
-              <Button size="lg" className="bg-[#e91e63] hover:bg-[#c2185b] text-white text-lg px-8 py-6">
+              <Button size="lg" className="bg-nexa-primary hover:bg-nexa-dark text-white text-lg px-8 py-6">
                 Shop Now
               </Button>
             </Link>

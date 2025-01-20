@@ -24,7 +24,7 @@
   }
 
   .hero-section button {
-    @apply mt-4 px-8 py-3 bg-[#e91e63] text-white rounded-md hover:bg-[#c2185b] transition-colors;
+    @apply mt-4 px-8 py-3 text-white rounded-md transition-colors;
     transform: translateY(-50%);
   }
 }
