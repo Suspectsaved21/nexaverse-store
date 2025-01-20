@@ -18,7 +18,7 @@ const deals = [
     id: 2,
     name: "Unisex Loudon Lite Backpack",
     price: 32.95,
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/381338d8-1507-4f7c-a2a9-eaa9d6af90d7.png"
   },
   {
     id: 3,
