@@ -7,8 +7,8 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="hero-section flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-12">
-        <div className="flex-1 text-left">
+      <section className="hero-section flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-12 min-h-[80vh]">
+        <div className="flex-1 text-left z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Nexa</h1>
           <p className="text-xl mb-6">Your one-stop online shop for everything!</p>
           <Link to="/shop">
@@ -17,11 +17,11 @@ export default function Index() {
             </Button>
           </Link>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 h-full w-full">
           <img 
             src="/lovable-uploads/d8e71c37-83cd-4f24-9782-a884ca1aa993.png" 
             alt="Nexa Fashion Collection" 
-            className="rounded-lg shadow-xl w-full max-w-[600px] object-cover"
+            className="rounded-lg shadow-xl w-full h-full object-cover max-h-[600px]"
           />
         </div>
       </section>

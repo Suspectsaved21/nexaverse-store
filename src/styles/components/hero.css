@@ -4,8 +4,8 @@
 
 @layer components {
   .hero-section {
-    @apply text-white bg-cover bg-center min-h-[70vh] flex flex-col items-center justify-center;
-    background-image: url('/placeholder.svg');
+    @apply text-white bg-cover bg-center relative overflow-hidden;
+    min-height: 80vh;
   }
 
   .hero-section h1 {
