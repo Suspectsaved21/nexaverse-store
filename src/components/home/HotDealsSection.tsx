@@ -24,7 +24,7 @@ const deals = [
     id: 3,
     name: "iPhone 14",
     price: 399,
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/e72d34fb-ac4a-4ee2-a038-c0d48d24baa5.png"
   },
   {
     id: 4,
