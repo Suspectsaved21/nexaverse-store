@@ -81,20 +81,20 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-nexa-primary">
+          {/* Logo with increased margin */}
+          <Link to="/" className="text-2xl font-bold text-nexa-primary mr-12">
             Nexa
           </Link>
 
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-600 hover:text-nexa-primary">Home</Link>
-            <Link to="/shop" className="text-gray-600 hover:text-nexa-primary">Shop</Link>
-            <Link to="/contact" className="text-gray-600 hover:text-nexa-primary">Contact</Link>
+          {/* Navigation Links with better spacing */}
+          <div className="hidden md:flex items-center space-x-12">
+            <Link to="/" className="text-gray-600 hover:text-nexa-primary transition-colors">Home</Link>
+            <Link to="/shop" className="text-gray-600 hover:text-nexa-primary transition-colors">Shop</Link>
+            <Link to="/contact" className="text-gray-600 hover:text-nexa-primary transition-colors">Contact</Link>
           </div>
 
-          {/* Search Bar */}
-          <form onSubmit={handleSearch} className="hidden md:flex items-center flex-1 max-w-md mx-8">
+          {/* Search Bar with flex-grow */}
+          <form onSubmit={handleSearch} className="hidden md:flex items-center flex-1 max-w-md mx-12">
             <div className="relative w-full">
               <Input
                 type="search"
@@ -109,8 +109,8 @@ export default function Navbar() {
             </div>
           </form>
 
-          {/* Auth & Cart */}
-          <div className="flex items-center gap-4">
+          {/* Auth & Cart with consistent spacing */}
+          <div className="flex items-center space-x-6">
             <Cart />
             {user ? (
               <>
