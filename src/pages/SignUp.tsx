@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Loader2, ArrowRight, ArrowLeft } from "lucide-react";
+import { EmailStep } from "@/components/auth/signup/EmailStep";
+import { PasswordStep } from "@/components/auth/signup/PasswordStep";
+import { UsernameStep } from "@/components/auth/signup/UsernameStep";
+import { StepIndicator } from "@/components/auth/signup/StepIndicator";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -17,6 +17,12 @@ export default function SignUp() {
     password: '',
     username: ''
   });
+
+  const stepDescriptions = [
+    'Enter your email',
+    'Create a password',
+    'Choose a username'
+  ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -80,93 +86,29 @@ export default function SignUp() {
     switch (currentStep) {
       case 1:
         return (
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              required
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={handleChange}
-              className="mb-4"
-            />
-            <Button 
-              type="button" 
-              onClick={nextStep}
-              className="w-full"
-            >
-              Next <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
+          <EmailStep 
+            email={formData.email}
+            onChange={handleChange}
+            onNext={nextStep}
+          />
         );
       case 2:
         return (
-          <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              required
-              placeholder="Create a password"
-              value={formData.password}
-              onChange={handleChange}
-              className="mb-4"
-            />
-            <div className="flex gap-2">
-              <Button 
-                type="button" 
-                variant="outline" 
-                onClick={prevStep}
-                className="flex-1"
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" /> Back
-              </Button>
-              <Button 
-                type="button" 
-                onClick={nextStep}
-                className="flex-1"
-              >
-                Next <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+          <PasswordStep
+            password={formData.password}
+            onChange={handleChange}
+            onNext={nextStep}
+            onPrev={prevStep}
+          />
         );
       case 3:
         return (
-          <div className="space-y-2">
-            <Label htmlFor="username">Username</Label>
-            <Input
-              id="username"
-              name="username"
-              type="text"
-              required
-              placeholder="Choose a username"
-              value={formData.username}
-              onChange={handleChange}
-              className="mb-4"
-            />
-            <div className="flex gap-2">
-              <Button 
-                type="button" 
-                variant="outline" 
-                onClick={prevStep}
-                className="flex-1"
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" /> Back
-              </Button>
-              <Button 
-                type="submit" 
-                className="flex-1"
-                disabled={loading}
-              >
-                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {loading ? "Creating account..." : "Sign Up"}
-              </Button>
-            </div>
-          </div>
+          <UsernameStep
+            username={formData.username}
+            onChange={handleChange}
+            onPrev={prevStep}
+            loading={loading}
+          />
         );
       default:
         return null;
@@ -180,22 +122,16 @@ export default function SignUp() {
           <CardHeader>
             <CardTitle className="text-2xl text-center">Create an account</CardTitle>
             <CardDescription className="text-center">
-              Step {currentStep} of 3: {currentStep === 1 ? 'Enter your email' : currentStep === 2 ? 'Create a password' : 'Choose a username'}
+              <StepIndicator 
+                currentStep={currentStep}
+                totalSteps={3}
+                stepDescriptions={stepDescriptions}
+              />
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               {renderStep()}
-              {currentStep === 3 && (
-                <div className="text-center mt-4">
-                  <p className="text-sm text-gray-600">
-                    Already have an account?{" "}
-                    <Link to="/login" className="text-nexa-primary hover:underline">
-                      Sign in
-                    </Link>
-                  </p>
-                </div>
-              )}
             </form>
           </CardContent>
         </Card>
