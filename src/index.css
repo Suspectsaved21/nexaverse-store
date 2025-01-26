@@ -4,6 +4,7 @@
 @import './styles/components/categories.css';
 @import './styles/components/deals.css';
 @import './styles/components/menu.css';
+@import './styles/landing.css';
 
 @tailwind base;
 @tailwind components;

@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-section {
+    @apply relative min-h-[90vh] flex items-center mt-16;
+  }
+
+  .hero-section img {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .hero-content {
+    @apply relative z-10 container mx-auto px-4 text-center;
+  }
+
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold mb-4 text-white;
+  }
+
+  .hero-subtitle {
+    @apply text-xl md:text-2xl mb-8 text-white;
+  }
+
+  /* Navigation Styles */
+  .main-nav {
+    @apply fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200;
+  }
+
+  .nav-container {
+    @apply container mx-auto px-4;
+  }
+
+  .nav-content {
+    @apply flex justify-between items-center h-16;
+  }
+
+  .nav-brand {
+    @apply text-2xl font-bold text-nexa-primary;
+  }
+
+  .nav-links {
+    @apply hidden md:flex items-center space-x-12;
+  }
+
+  .nav-link {
+    @apply text-gray-600 hover:text-nexa-primary;
+  }
+
+  .nav-actions {
+    @apply flex items-center space-x-4;
+  }
+
+  .search-form {
+    @apply hidden md:flex items-center;
+  }
+
+  /* Categories Section Styles */
+  .categories-section {
+    @apply py-16 px-4 bg-gray-50;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-center mb-12;
+  }
+
+  .categories-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8;
+  }
+
+  .category-card {
+    @apply bg-white p-6 rounded-lg shadow-md transform transition-transform hover:scale-105;
+  }
+
+  .category-image {
+    @apply w-full h-48 object-cover rounded-md mb-4;
+  }
+
+  .category-title {
+    @apply text-xl font-semibold text-center;
+  }
+
+  /* Hot Deals Section Styles */
+  .deals-section {
+    @apply py-16 px-4 bg-white;
+  }
+
+  .deals-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .deal-card {
+    @apply bg-white p-6 rounded-lg shadow-md;
+  }
+
+  .deal-image {
+    @apply w-full h-48 object-contain mb-4;
+  }
+
+  .deal-title {
+    @apply text-lg font-semibold mb-2;
+  }
+
+  .deal-price {
+    @apply text-2xl font-bold text-nexa-primary mb-4;
+  }
+
+  /* Blog Section Styles */
+  .blog-section {
+    @apply py-16 px-4 bg-gray-50;
+  }
+
+  .blog-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+  }
+
+  .blog-card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden;
+  }
+
+  .blog-image {
+    @apply w-full h-48 object-cover;
+  }
+
+  .blog-content {
+    @apply p-6;
+  }
+
+  .blog-title {
+    @apply text-xl font-semibold mb-2;
+  }
+
+  .blog-excerpt {
+    @apply text-gray-600 mb-4;
+  }
+
+  /* Footer Styles */
+  .main-footer {
+    @apply bg-white border-t;
+  }
+
+  .footer-container {
+    @apply container mx-auto px-4 py-12;
+  }
+
+  .footer-grid {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+  }
+
+  .footer-brand {
+    @apply col-span-1;
+  }
+
+  .footer-links {
+    @apply space-y-2;
+  }
+
+  .footer-heading {
+    @apply font-semibold text-gray-900 mb-4;
+  }
+
+  .footer-link {
+    @apply text-gray-600 hover:text-nexa-primary;
+  }
+
+  .footer-contact {
+    @apply text-gray-600;
+  }
+
+  .footer-bottom {
+    @apply mt-8 pt-8 border-t border-gray-200;
+  }
+
+  .footer-copyright {
+    @apply text-center text-gray-500;
+  }
+
+  /* Utility Classes */
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .btn-primary {
+    @apply bg-nexa-primary hover:bg-nexa-dark text-white text-lg px-8 py-6;
+  }
+
+  .btn-outline {
+    @apply border border-nexa-primary text-nexa-primary hover:bg-nexa-primary hover:text-white transition-colors;
+  }
+}
